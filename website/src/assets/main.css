@@ -1,0 +1,14 @@
+:root {
+    --engDeptGreen: #505A2F;
+    --black: #000;
+    --green-light: #B4B697;
+    --grey-light: #F2F1F0;
+}
+
+/* Mobile first */
+body {
+    background-color: #282726;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
