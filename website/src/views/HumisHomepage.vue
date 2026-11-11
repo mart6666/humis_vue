@@ -1,5 +1,7 @@
 <script setup>
 
+import BottomNav from "@/components/BottomNav.vue";
+import TopNav from "@/components/TopNav.vue";
 import LeftNav from "@/components/LeftNav.vue";
 </script>
 
@@ -12,82 +14,62 @@ import LeftNav from "@/components/LeftNav.vue";
     </header>
 
     <section class="middle">
-      <nav>
-        <a href="#">Campus directory</a>
-        <a href="#">Department calendar</a>
-        <a href="#">Contact us</a>
 
-        <a href="#">
-          <img src="@/assets/files/u_small.gif" alt="U of U Logo"/>
-        </a>
+      <top-nav/>
+
+      <nav class="drop-down-menu">
+        <label for="major-navigation">
+          <select name="major-navigation" id="major-navigation">
+            <option value="#">About us</option>
+            <option value="#">Faculty &amp; staff</option>
+            <option value="#">Undergraduate students</option>
+            <option value="#">Graduate students</option>
+            <option value="#">Courses &amp; syllabi</option>
+            <option value="#">News &amp; announcements</option>
+            <option value="#">Friends &amp; alumni</option>
+            <option value="#">Contact us</option>
+          </select>
+        </label>
       </nav>
 
       <div class="green-box">
-        <aside class="left">
+        <aside class="left-side">
 
           <left-nav/>
 
-          <div class="links">
-            <a href="#">
-              <img src="@/assets/files/login-humis.gif" alt="Log in to HUMIS"/>
-            </a>
-
-            <a href="#">
-              <img src="@/assets/files/login-cis.gif" alt="Login to CIS"/>
-            </a>
-          </div>
         </aside>
 
-        <aside class="right">
-          <img src="@/assets/files/women_w_pottery.jpg" alt="Pottery"/>
+        <main>
+          <img src="@/assets/files/women_w_pottery.jpg" alt="Women w pottery"/>
 
-          <h1>News &amp; announcements</h1>
-
-          <p>
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Donec mattis venenatis risus quis
-            consectetur. Suspendisse sollicitudin non orci quis varius. Integer maximus semper mi. Curabitur
-            facilisis lacus in leo rutrum lacinia. Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos. In vitae luctus sapien. Nunc sed ipsum turpis. Maecenas id semper
-            urna, eget sodales ante. Nulla eu ante ullamcorper, pharetra dolor quis, aliquet urna. Cras
-            ullamcorper turpis sit amet dolor commodo, nec semper ligula posuere. Cras eu ornare diam, eget
-            facilisis odio. Quisque interdum dolor massa, ut volutpat tortor eleifend vel. Pellentesque semper
-            rutrum ornare.
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis venenatis risus quis
-            consectetur. Suspendisse sollicitudin non orci quis varius. Integer maximus semper mi. Curabitur
-            facilisis lacus in leo rutrum lacinia. Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos. In vitae luctus sapien. Nunc sed ipsum turpis. Maecenas id semper
-            urna, eget sodales ante. Nulla eu ante ullamcorper, pharetra dolor quis, aliquet urna. Cras
-            ullamcorper turpis sit amet dolor commodo, nec semper ligula posuere. Cras eu ornare diam, eget
-            facilisis odio. Quisque interdum dolor massa, ut volutpat tortor eleifend vel. Pellentesque semper
-            rutrum ornare.
-          </p>
-
-          <p>
-            Duis imperdiet sem eget sapien sagittis, sit amet ultrices mi consectetur. Ut ultrices leo at
-            pellentesque bibendum. Phasellus vitae mi nec sapien ullamcorper venenatis. Fusce in convallis elit.
-            Aenean sed ex id urna laoreet tincidunt. Phasellus feugiat vitae mauris sit amet ultricies. Donec
-            lobortis pulvinar leo at rutrum. Morbi condimentum, est dapibus tempus ullamcorper, velit nisi
-            accumsan ante, ac eleifend elit justo a nisi.
-          </p>
-
-          <p class="link">
-            <a href="#">
-              >> More news &amp; announcements
-            </a>
-          </p>
-        </aside>
+          <p>The history of women in Mexico is a profound narrative of resilience, transformation, and leadership
+            that spans from the pre-Columbian era to the modern day. In Mesoamerican civilizations like the Maya
+            and Aztecs, women held vital, dual roles as spiritual guardians, healers, and economic contributors,
+            even as they navigated strictly defined gender structures. The Spanish conquest in 1519 radically
+            disrupted these traditions, imposing patriarchal colonial laws and Catholic structures that
+            restricted women's autonomy. Yet, figures like Sor Juana Inés de la Cruz emerged during this time,
+            defying social limitations to become one of the greatest scholars and poets of the Spanish Golden
+            Age, laying early intellectual foundations for women’s rights.</p>
+          <p>The 19th and early 20th centuries marked a major turning point as Mexican women actively shaped the
+            nation's political identity. During the Mexican War of Independence, figures like Josefa Ortiz de
+            Domínguez risked their lives to pass critical intelligence to insurgents. Decades later, during the
+            Mexican Revolution (1910–1920), thousands of women known as soldaderas took up arms, served as camp
+            followers, smuggled weapons, and worked as nurses and journalists. Despite their immense
+            contributions to the birth of modern Mexico, women had to fight for decades more to gain formal
+            political recognition, finally securing the right to vote in national elections in 1953.</p>
+          <p>In recent decades, the feminist movement in Mexico has achieved historic milestones while tackling
+            deep-seated systemic challenges. The 21st century has seen a dramatic shift toward political parity,
+            culminating in the historic election of Claudia Sheinbaum in 2024 as Mexico's first female
+            president. Today, Mexican women continue to lead powerful grassroots movements, driving national
+            conversations around gender equality, labor rights, and an end to gender-based violence. Their
+            ongoing advocacy continues to reshape the legal, social, and cultural landscape of the country.</p>
+        </main>
 
         <div style="clear: both;"></div>
       </div>
 
-      <nav class="bottom">
-        <a href="#">Disclaimer</a>
-        <a href="#">Text only</a>
-        <a href="#">Webmaster</a>
-      </nav>
+      <bottom-nav/>
+
     </section>
 
     <footer>
@@ -99,13 +81,15 @@ import LeftNav from "@/components/LeftNav.vue";
 
 <style scoped>
 div.container { /* Container div */
-  width: 780px;
+  min-width: 390px;
+  max-width: 780px;
   margin: 0 auto;
   background-color: #FFF;
 
   header {
     img {
       display: block;
+      width: 100%;
     }
   }
 
@@ -115,96 +99,31 @@ div.container { /* Container div */
     background-image: url('@/assets/files/uofu_medallion_rt.gif');
     background-repeat: no-repeat;
     background-position: bottom right;
-
-    > nav {
-      text-align: right;
-      font-size: 10px;
-      text-transform: uppercase;
-
-      a {
-        color: #000;
-        border-right: 1px solid black;
-        padding-right: 5px;
-        margin-right: 5px;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-
-        img {
-          vertical-align: middle;
-        }
-
-        &:last-of-type {
-          border-right: none;
-        }
-      }
-
-      &.bottom {
-        text-transform: lowercase;
-      }
-    }
   }
 
   div.green-box {
     min-height: 400px;
     background-color: #C8CAAF;
-    padding: 20px 30px;
+    padding: 10px;
     margin: 10px 0 100px;
     border-radius: 10px;
 
     aside {
-      /*border: 1px solid black;*/
+      &.left-side {
+        display: none;
 
-      &.left {
-        float: left;
-        width: 30%;
-        min-height: 800px;
-        position: relative;
-
-        div.links {
-          margin-top: 40px;
-          position: absolute;
-          bottom: 0;
-          left: 0;
+        nav {
+          /* nav styles here */
         }
       }
+    }
 
-      &.right {
-        float: right;
-        width: 60%;
-        background-color: #fff;
-        padding: 10px;
+    main {
+      background-color: #FFF;
+      padding: 10px;
 
-        img {
-          width: 100%;
-        }
-
-        h1 {
-          color: #505A2F;
-          border-bottom: 2px dashed #A12D37;
-          font-size: 16px;
-          text-transform: uppercase;
-          font-weight: normal;
-        }
-
-        p {
-          font-size: 12px;
-
-          span {
-            font-weight: bold;
-            font-size: 110%;
-          }
-
-          &.link {
-            text-align: right;
-
-            a {
-              color: red;
-            }
-          }
-        }
+      img {
+        width: 100%;
       }
     }
   }
@@ -216,38 +135,33 @@ div.container { /* Container div */
     font-size: 10px;
     padding: 10px 0;
   }
-}
 
-@media screen and (width >= 600px) {
-  section.middle {
-    flex-direction: row;
+  /* Tablet and up overrides */
+  @media screen and (width >= 600px) {
+    /* A breakpoint */
+    section.middle {
+      > nav { /* nav child */
 
-    div.left-side {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30%;
-      background-color: var(--grey-light);
-      border-right: 2px solid var(--green-light);
-      padding-bottom: 20px;
-
-      div.login-links{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-    }
-
-    section.inner {
-      width: 70%;
-
-      nav.drop-down-menu {
-        display: none;
+        &.drop-down-menu {
+          display: none;
+        }
       }
 
-      nav.minor {
-        justify-content: flex-end;
+      div.green-box {
+        padding: 20px 30px;
+
+        aside {
+          &.left-side {
+            display: block;
+            float: left;
+            width: 33%;
+          }
+        }
+
+        main {
+          float: right;
+          width: 60%;
+        }
       }
     }
   }

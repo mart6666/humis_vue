@@ -1,23 +1,36 @@
 <script setup>
-
+import {useRouter} from 'vue-router'
 </script>
 
 <template>
-  <nav>
+  <nav class="left-nav">
     <router-link :to="{ name: 'about' }">About us</router-link>
 
     <a href="#">Faculty &amp; staff</a>
-    <a href="undergrad.html">Undergraduate students</a>
-    <a href="graduate.html">Graduate students</a>
+
+    <a href="#">Undergraduate students</a>
+
+    <a href="#">Graduate students</a>
+
     <a href="#">Courses &amp; syllabi</a>
+
     <a href="#">News &amp; announcements</a>
-    <a href="#">Friends &amp; Alumni</a>
-    <a href="contact-us.html">Contact us</a>
+
+    <a href="#">Friends &amp; alumni</a>
+
+    <router-link :to="{ name: 'contact-us' }">Contact us</router-link>
+
+
+    <router-link v-for="(route, index) in useRouter().options.routes"
+                 v-text="route.meta.prettyName"
+                 :to="{ name: route.name }"
+    />
+
   </nav>
 </template>
 
 <style scoped>
-nav {
+nav.left-nav {
   margin: 20px 20px 0;
 
   a {
@@ -34,8 +47,9 @@ nav {
       color: #fff;
     }
 
-    &.active{
+    &.active {
       font-weight: bold;
+      font-size: 12px;
     }
   }
 }
