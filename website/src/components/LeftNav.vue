@@ -4,27 +4,13 @@ import {useRouter} from 'vue-router'
 
 <template>
   <nav class="left-nav">
-    <router-link :to="{ name: 'about' }">About us</router-link>
-
-    <a href="#">Faculty &amp; staff</a>
-
-    <a href="#">Undergraduate students</a>
-
-    <a href="#">Graduate students</a>
-
-    <a href="#">Courses &amp; syllabi</a>
-
-    <a href="#">News &amp; announcements</a>
-
-    <a href="#">Friends &amp; alumni</a>
-
-    <router-link :to="{ name: 'contact-us' }">Contact us</router-link>
-
-
-    <router-link v-for="(route, index) in useRouter().options.routes"
-                 v-text="route.meta.prettyName"
+    <router-link v-for="(route, index) in useRouter().options.routes
+    .filter(route => route.meta.hideMe !== true)"
+                 :key="index"
                  :to="{ name: route.name }"
-    />
+    >
+      {{ route.meta.prettyName }}
+    </router-link>
 
   </nav>
 </template>
